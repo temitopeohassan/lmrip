@@ -1,11 +1,24 @@
 {
   "files": {
-    "main.js": "/lmrip/static/js/main.1ad2ef62.js",
+    "main.css": "/lmrip/static/css/main.dea60674.css",
+    "main.js": "/lmrip/static/js/main.d783657b.js",
+    "static/media/SkatePrintedRegularT-shirtsORange.jpg": "/lmrip/static/media/SkatePrintedRegularT-shirtsORange.a59e63048b86e8ee397b.jpg",
+    "static/media/OutoftheBoxPrintedRegularT-shirtsPink.jpg": "/lmrip/static/media/OutoftheBoxPrintedRegularT-shirtsPink.dccb9b3feaa3289564b0.jpg",
+    "static/media/HopePrintedRegularT-shirtsRed.jpg": "/lmrip/static/media/HopePrintedRegularT-shirtsRed.ab0818e9bbe7dc2d907d.jpg",
+    "static/media/TigerBuildforWildPrintedRegularT-shirtsNavyBLue4.jpg": "/lmrip/static/media/TigerBuildforWildPrintedRegularT-shirtsNavyBLue4.9a6403fbea43fcd08e61.jpg",
+    "static/media/SkatePrintedRegularT-shirtsBlue4.jpg": "/lmrip/static/media/SkatePrintedRegularT-shirtsBlue4.19f7bca4e5209eafe6de.jpg",
+    "static/media/MakeTodayGreatPrintedT-shirtsLavender4.jpg": "/lmrip/static/media/MakeTodayGreatPrintedT-shirtsLavender4.593525ac5004d8850c78.jpg",
+    "static/media/StrongEverytimePrintedRegularT-shirtsOrange4.jpg": "/lmrip/static/media/StrongEverytimePrintedRegularT-shirtsOrange4.e1958d2e9a724741ca3d.jpg",
+    "static/media/DragonAlwaysBeYourselfPrintedRegularT-shirtsYellow4.jpg": "/lmrip/static/media/DragonAlwaysBeYourselfPrintedRegularT-shirtsYellow4.b21254afa219ebb26485.jpg",
+    "static/media/StayHumblePrintedRegularT-shirtsPink4.jpg": "/lmrip/static/media/StayHumblePrintedRegularT-shirtsPink4.83ca1527b691fe7d7790.jpg",
+    "static/media/KeepItSimplePrintedRegularT-shirtsOrange4.jpg": "/lmrip/static/media/KeepItSimplePrintedRegularT-shirtsOrange4.7064e32aed7ccc28c37e.jpg",
     "static/media/logo.jpeg": "/lmrip/static/media/logo.3cc7ec009b6df862f53a.jpeg",
     "index.html": "/lmrip/index.html",
-    "main.1ad2ef62.js.map": "/lmrip/static/js/main.1ad2ef62.js.map"
+    "main.dea60674.css.map": "/lmrip/static/css/main.dea60674.css.map",
+    "main.d783657b.js.map": "/lmrip/static/js/main.d783657b.js.map"
   },
   "entrypoints": [
-    "static/js/main.1ad2ef62.js"
+    "static/css/main.dea60674.css",
+    "static/js/main.d783657b.js"
   ]
 }
