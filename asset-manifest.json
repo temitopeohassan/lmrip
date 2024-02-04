@@ -1,24 +1,35 @@
 {
   "files": {
     "main.css": "/lmrip/static/css/main.dea60674.css",
-    "main.js": "/lmrip/static/js/main.d783657b.js",
-    "static/media/SkatePrintedRegularT-shirtsORange.jpg": "/lmrip/static/media/SkatePrintedRegularT-shirtsORange.a59e63048b86e8ee397b.jpg",
-    "static/media/OutoftheBoxPrintedRegularT-shirtsPink.jpg": "/lmrip/static/media/OutoftheBoxPrintedRegularT-shirtsPink.dccb9b3feaa3289564b0.jpg",
-    "static/media/HopePrintedRegularT-shirtsRed.jpg": "/lmrip/static/media/HopePrintedRegularT-shirtsRed.ab0818e9bbe7dc2d907d.jpg",
-    "static/media/TigerBuildforWildPrintedRegularT-shirtsNavyBLue4.jpg": "/lmrip/static/media/TigerBuildforWildPrintedRegularT-shirtsNavyBLue4.9a6403fbea43fcd08e61.jpg",
-    "static/media/SkatePrintedRegularT-shirtsBlue4.jpg": "/lmrip/static/media/SkatePrintedRegularT-shirtsBlue4.19f7bca4e5209eafe6de.jpg",
-    "static/media/MakeTodayGreatPrintedT-shirtsLavender4.jpg": "/lmrip/static/media/MakeTodayGreatPrintedT-shirtsLavender4.593525ac5004d8850c78.jpg",
-    "static/media/StrongEverytimePrintedRegularT-shirtsOrange4.jpg": "/lmrip/static/media/StrongEverytimePrintedRegularT-shirtsOrange4.e1958d2e9a724741ca3d.jpg",
-    "static/media/DragonAlwaysBeYourselfPrintedRegularT-shirtsYellow4.jpg": "/lmrip/static/media/DragonAlwaysBeYourselfPrintedRegularT-shirtsYellow4.b21254afa219ebb26485.jpg",
-    "static/media/StayHumblePrintedRegularT-shirtsPink4.jpg": "/lmrip/static/media/StayHumblePrintedRegularT-shirtsPink4.83ca1527b691fe7d7790.jpg",
-    "static/media/KeepItSimplePrintedRegularT-shirtsOrange4.jpg": "/lmrip/static/media/KeepItSimplePrintedRegularT-shirtsOrange4.7064e32aed7ccc28c37e.jpg",
+    "main.js": "/lmrip/static/js/main.92c438e2.js",
+    "static/media/IBMPlexMono-SemiBoldItalic.ttf": "/lmrip/static/media/IBMPlexMono-SemiBoldItalic.c2401979657a26fee8c8.ttf",
+    "static/media/IBMPlexMono-ThinItalic.ttf": "/lmrip/static/media/IBMPlexMono-ThinItalic.2293ac509ac2f77a7762.ttf",
+    "static/media/IBMPlexMono-ExtraLightItalic.ttf": "/lmrip/static/media/IBMPlexMono-ExtraLightItalic.a649f1bdb5422c13c04b.ttf",
+    "static/media/IBMPlexMono-BoldItalic.ttf": "/lmrip/static/media/IBMPlexMono-BoldItalic.1a9f25578f026bbaf7b3.ttf",
+    "static/media/IBMPlexMono-MediumItalic.ttf": "/lmrip/static/media/IBMPlexMono-MediumItalic.5c1ec74a9f9adb58813e.ttf",
+    "static/media/IBMPlexMono-Italic.ttf": "/lmrip/static/media/IBMPlexMono-Italic.829c224b500c32cfd1e5.ttf",
+    "static/media/IBMPlexMono-LightItalic.ttf": "/lmrip/static/media/IBMPlexMono-LightItalic.0a3c532e1fd8b2b2615e.ttf",
+    "static/media/IBMPlexMono-SemiBold.ttf": "/lmrip/static/media/IBMPlexMono-SemiBold.5f82c3b8863d23615092.ttf",
+    "static/media/IBMPlexMono-Thin.ttf": "/lmrip/static/media/IBMPlexMono-Thin.86f7b7453e653fa3eb10.ttf",
+    "static/media/IBMPlexMono-Bold.ttf": "/lmrip/static/media/IBMPlexMono-Bold.270fc7685a99d1197e53.ttf",
+    "static/media/IBMPlexMono-Medium.ttf": "/lmrip/static/media/IBMPlexMono-Medium.e44b6da17070f5fecd5b.ttf",
+    "static/media/IBMPlexMono-ExtraLight.ttf": "/lmrip/static/media/IBMPlexMono-ExtraLight.0064945a20eef9328573.ttf",
+    "static/media/IBMPlexMono-Regular.ttf": "/lmrip/static/media/IBMPlexMono-Regular.1509e8d24f8562f776e4.ttf",
+    "static/media/IBMPlexMono-Light.ttf": "/lmrip/static/media/IBMPlexMono-Light.a21361968db7f557724b.ttf",
+    "static/media/item3.jpg": "/lmrip/static/media/item3.a6c06fb5bdf4c3422e0b.jpg",
+    "static/media/item2.jpg": "/lmrip/static/media/item2.6d1d288b1f93ef0b5c53.jpg",
+    "static/media/item1.jpg": "/lmrip/static/media/item1.79d7ee6b5b2eb90dd720.jpg",
+    "static/media/item4.jpg": "/lmrip/static/media/item4.376528a23df67a0564bb.jpg",
+    "static/media/item5.jpg": "/lmrip/static/media/item5.b6721da04d1a9c43d8da.jpg",
+    "static/media/item0.jpg": "/lmrip/static/media/item0.ac4c75ef40495a3a3692.jpg",
     "static/media/logo.jpeg": "/lmrip/static/media/logo.3cc7ec009b6df862f53a.jpeg",
+    "static/media/footer-logo.jpeg": "/lmrip/static/media/footer-logo.f36b8a22aec70ffe273d.jpeg",
     "index.html": "/lmrip/index.html",
     "main.dea60674.css.map": "/lmrip/static/css/main.dea60674.css.map",
-    "main.d783657b.js.map": "/lmrip/static/js/main.d783657b.js.map"
+    "main.92c438e2.js.map": "/lmrip/static/js/main.92c438e2.js.map"
   },
   "entrypoints": [
     "static/css/main.dea60674.css",
-    "static/js/main.d783657b.js"
+    "static/js/main.92c438e2.js"
   ]
 }
