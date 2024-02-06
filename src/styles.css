@@ -1,0 +1,21 @@
+/* Filename: styles.css */
+
+.App {
+	text-align: center;
+}
+
+.gfg {
+	color: green;
+}
+
+.font-container {
+	font-family: "IBM Plex Mono", monospace;
+}
+
+.text {
+	font-size: 30px;
+}
+
+body {
+    font-family: "IBM Plex Mono", monospace;
+}

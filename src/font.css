@@ -1,0 +1,91 @@
+
+
+
+
+
+
+
+/* File: font.css */
+@font-face {
+    font-family: "Bold";   /*Can be any text*/
+    src: local("IBMPlexMono-Bold"),
+      url("./assets/fonts/IBMPlexMono-Bold.ttf") format("truetype");
+  }
+
+@font-face {
+    font-family: "BoldItalic";   /*Can be any text*/
+    src: local("IBMPlexMono-BoldItalic"),
+      url("./assets/fonts/IBMPlexMono-BoldItalic.ttf") format("truetype");
+  }
+
+@font-face {
+    font-family: "Extralight";   /*Can be any text*/
+    src: local("IBMPlexMono-ExtraLight"),
+      url("./assets/fonts/IBMPlexMono-ExtraLight.ttf") format("truetype");
+  }
+
+@font-face {
+    font-family: "ExtralightItalic";   /*Can be any text*/
+    src: local("IBMPlexMono-ExtralightItalic"),
+      url("./assets/fonts/IBMPlexMono-ExtraLightItalic.ttf") format("truetype");
+  }  
+
+@font-face {
+    font-family: "Italic";   /*Can be any text*/
+    src: local("IBMPlexMono-Italic"),
+      url("./assets/fonts/IBMPlexMono-Italic.ttf") format("truetype");
+  }  
+
+@font-face {
+    font-family: "Light";   /*Can be any text*/
+    src: local("IBMPlexMono-Light"),
+      url("./assets/fonts/IBMPlexMono-Light.ttf") format("truetype");
+  }
+
+@font-face {
+    font-family: "LightItalic";   /*Can be any text*/
+    src: local("IBMPlexMono-LightItalic"),
+      url("./assets/fonts/IBMPlexMono-LightItalic.ttf") format("truetype");
+  }
+
+@font-face {
+    font-family: "Medium";   /*Can be any text*/
+    src: local("IBMPlexMono-Medium"),
+      url("./assets/fonts/IBMPlexMono-Medium.ttf") format("truetype");
+  }
+  
+@font-face {
+    font-family: "MediumItalic";   /*Can be any text*/
+    src: local("IBMPlexMono-MediumItalic"),
+      url("./assets/fonts/IBMPlexMono-MediumItalic.ttf") format("truetype");
+  }
+  
+@font-face {
+    font-family: "Regular";   /*Can be any text*/
+    src: local("IBMPlexMono-Regular"),
+      url("./assets/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  }
+  
+@font-face {
+    font-family: "SemiBold";   /*Can be any text*/
+    src: local("IBMPlexMono-SemiBold"),
+      url("./assets/fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
+  }  
+
+@font-face {
+    font-family: "LightIBMPlexMono-SemiBoldItalic";   /*Can be any text*/
+    src: local("IBMPlexMono-SemiBoldItalic"),
+      url("./assets/fonts/IBMPlexMono-SemiBoldItalic.ttf") format("truetype");
+  }  
+
+@font-face {
+    font-family: "IBMPlexMono-Thin";   /*Can be any text*/
+    src: local("IBMPlexMono-Thin"),
+      url("./assets/fonts/IBMPlexMono-Thin.ttf") format("truetype");
+  }
+  
+@font-face {
+    font-family: "IBMPlexMono-ThinItalic";   /*Can be any text*/
+    src: local("IBMPlexMono-ThinItalic"),
+      url("./assets/fonts/IBMPlexMono-ThinItalic.ttf") format("truetype");
+  }  
