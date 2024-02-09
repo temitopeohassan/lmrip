@@ -1,6 +1,7 @@
 import { Instagram, MailOutline } from "@material-ui/icons";
 import styled from "styled-components";
 import Img from '../assets/images/footer-logo.jpeg';
+import MobileImg from '../assets/images/mobile-footer-logo.png'; // Mobile logo
 
 const Container = styled.div`
   display: flex;
@@ -85,7 +86,10 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo><img src={Img} alt='LMRIP' /></Logo>
+        <Logo>
+          {/* Conditionally render the logo based on viewport width */}
+          <img src={window.innerWidth > 768 ? Img : MobileImg} alt='LMRIP' />
+        </Logo>
         <Desc>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget convallis velit. Integer eu neque molestie, commodo nunc eu, malesuada neque. Proin magna purus, hendrerit fringilla vehicula convallis, tempor sit amet est. Sed ut magna ac justo scelerisque tincidunt id eget ex.
         </Desc>
