@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -22,57 +16,24 @@ const Title = styled.h1`
   margin-bottom: 2px;
 `;
 
+const ProductWrapper = styled.div`
+  width: 50%; /* Set width to 50% to display 2 items per row */
+  padding: 10px; /* Adjust padding as needed */
+`;
+
 const Products = ({ cat, filters, sort }) => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const res = await axios.get(
-          cat
-            ? `http://localhost:5000/api/products?category=${cat}`
-            : "http://localhost:5000/api/products"
-        );
-        setProducts(res.data);
-      } catch (err) {}
-    };
-    getProducts();
-  }, [cat]);
-
-  useEffect(() => {
-    cat &&
-      setFilteredProducts(
-        products.filter((item) =>
-          Object.entries(filters).every(([key, value]) =>
-            item[key].includes(value)
-          )
-        )
-      );
-  }, [products, cat, filters]);
-
-  useEffect(() => {
-    if (sort === "newest") {
-      setFilteredProducts((prev) =>
-        [...prev].sort((a, b) => a.createdAt - b.createdAt)
-      );
-    } else if (sort === "asc") {
-      setFilteredProducts((prev) =>
-        [...prev].sort((a, b) => a.price - b.price)
-      );
-    } else {
-      setFilteredProducts((prev) =>
-        [...prev].sort((a, b) => b.price - a.price)
-      );
-    }
-  }, [sort]);
 
   return (
+   <>
+   <Title>OUR PRODUCTS!</Title>
     <Container>
     {popularProducts.map((item) => (
-      <Product item={item} key={item.id} />
+      <ProductWrapper key={item.id}>
+      <Product item={item} />
+    </ProductWrapper>
     ))}
   </Container>
+   </>
   );
 };
 

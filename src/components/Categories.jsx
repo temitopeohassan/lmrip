@@ -28,7 +28,7 @@ const Title = styled.h1`
 const Categories = () => {
   return (
     <>
-      <Title>SHOP NOW!</Title>
+      <Title>SHOP CATEGORIES</Title>
       <Container>
         {categories.map((item) => (
           <CategoryItem item={item} key={item.id} />

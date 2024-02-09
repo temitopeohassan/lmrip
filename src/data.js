@@ -39,7 +39,7 @@ export const sliderItems = [
     {
       id: 1,
       img: require('./assets/images/item1.jpg'),
-      title: "APPARELS",
+      title: "ADULTS",
     },
     {
       id: 2,
@@ -49,7 +49,7 @@ export const sliderItems = [
     {
       id: 3,
       img: require('./assets/images/item0.jpg'),
-      title: "GIFTS",
+      title: "ACCESSORIES",
     },
   ];
 

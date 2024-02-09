@@ -38,17 +38,41 @@ const Wrapper = styled.div`
   transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 
+const InfoContainer = styled.div`
+  position: absolute; /* Change to absolute positioning */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Add background color for better readability */
+`;
+
+const ImgContainer = styled.div`
+  height: 100%;
+  position: relative;
+`;
+
+const Image = styled.img`
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  z-index: -1;
+`;
+
 const Slide = styled.div`
   width: 100vw;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative; /* Add position relative to allow absolute positioning of InfoContainer */
 `;
 
 const Title = styled.h1`
   font-size: 3.5vw;
   margin-bottom: 20px;
+  color: #ffffff; /* Add text color */
 `;
 
 const Desc = styled.p`
@@ -56,38 +80,7 @@ const Desc = styled.p`
   font-size: 1.5vw;
   font-weight: 500;
   letter-spacing: 1px;
-`;
-
-const InfoContainer = styled.div`
-  position: relative;
-  flex: 1;
-  padding: 20px;
-  text-align: center;
-`;
-
-const ImgContainer = styled.div`
-  height: 100%;
-  position: relative; 
-`;
-
-const Image = styled.img`
-  max-height: 100%;
-  max-width: 100%;
-  position: relative;
-  z-index: 1;
-`;
-
-const Button = styled.button`
-  position: fixed; 
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px;
-  font-size: 1.5vw;
-  color: #ffffff;
-  background-color: #000000;
-  cursor: pointer;
-  z-index: 2;
+  color: #ffffff; /* Add text color */
 `;
 
 const Slider = () => {
@@ -114,9 +107,19 @@ const Slider = () => {
     }
   };
 
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
   return (
     <Container 
       isMobile={isMobileView}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {isMobileView ? (
         <ImgContainer>
@@ -140,7 +143,6 @@ const Slider = () => {
                 <InfoContainer>
                   <Title>{item.title}</Title>
                   <Desc>{item.desc}</Desc>
-                  <Button>SHOP NOW</Button>
                 </InfoContainer>
               </Slide>
             ))}
