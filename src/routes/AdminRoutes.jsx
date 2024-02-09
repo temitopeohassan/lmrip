@@ -1,25 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// AdminRoutes.jsx
-
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
@@ -35,32 +13,34 @@ import Login from "../pages/login/Login";
 import { useSelector } from "react-redux";
 
 const AdminRoutes = () => {
-  console.log('Rendering Admin component');
+  const currentUser = useSelector((state) => state.user.currentUser);
+  const isAdmin = currentUser?.isAdmin || false;
 
-  const admin = useSelector((state) => state.user.currentUser.isAdmin);
   return (
-    <div>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        {admin && (
-          <>
-            <Topbar />
-            <div className="container">
-              <Sidebar />
-              <Route path="/*" element={<Navigate to="home" replace />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/users" element={<UserList />} />
-              <Route path="/user/:userId" element={<User />} />
-              <Route path="/newUser" element={<NewUser />} />
-              <Route path="/products" element={<ProductList />} />
-              <Route path="/product/:productId" element={<Product />} />
-            </div>
-          </>
-        )}
-      </Routes>
-    </div>
+    <Routes>
+      {currentUser ? (
+        <>
+          <Route path="/" element={<Navigate to="home" replace />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/users" element={<UserList />} />
+          <Route path="/user/:userId" element={<User />} />
+          <Route path="/newUser" element={<NewUser />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/product/:productId" element={<Product />} />
+          {isAdmin && (
+            <>
+              <Topbar />
+              <div className="container">
+                <Sidebar />
+              </div>
+            </>
+          )}
+        </>
+      ) : (
+        <Route path="*" element={<Login />} />
+      )}
+    </Routes>
   );
-}
+};
 
 export default AdminRoutes;
-
