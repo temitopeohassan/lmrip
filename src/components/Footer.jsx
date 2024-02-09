@@ -1,13 +1,17 @@
-import {
-  Instagram,
-  MailOutline,
-} from "@material-ui/icons";
+import { Instagram, MailOutline } from "@material-ui/icons";
 import styled from "styled-components";
 import Img from '../assets/images/footer-logo.jpeg';
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  background-color: white; /* Default background color */
+  color: black; /* Default text color */
+
+  @media (max-width: 768px) {
+    background-color: black; /* Change background color to black for mobile view */
+    color: white; /* Change text color to white for mobile view */
+  }
 `;
 
 const Left = styled.div`
@@ -16,7 +20,6 @@ const Left = styled.div`
 `;
 
 const Logo = styled.div`
-  color: #fff;
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
@@ -33,8 +36,7 @@ const SocialIcon = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  color: white;
-  background-color: #${(props) => props.color};
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,13 +110,13 @@ const Footer = () => {
       <Right>
         <Title>FIND US</Title>
         <ContactItem>
-          <SocialIcon color="E4405F">
-            <Instagram />
+          <SocialIcon>
+            <Instagram style={{ color: "white" }} />
           </SocialIcon>
-          ON ISTAGRAM
+           INSTAGRAM
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{ marginRight: "10px" }} /> contact@lmrip.co.uk
+          <MailOutline style={{ marginRight: "10px", color: "white" }} /> contact@lmrip.co.uk
         </ContactItem>
       </Right>
     </Container>

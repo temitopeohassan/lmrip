@@ -1,16 +1,16 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { sliderItems } from "../data";
+import backgroundImage from "../assets/images/background-photo-mobile-devices.png"; // Import your static image
 
 const Container = styled.div`
-  /* Ensure there are no conflicting styles in the parent component */
-  /* Check if the parent component has sufficient dimensions */
   width: 100%;
   height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
+  background-color: ${(props) => (props.isMobile ? "#000000" : "transparent")}; /* Set background color to black in mobile view */
 `;
 
 const Arrow = styled.div`
@@ -27,7 +27,7 @@ const Arrow = styled.div`
   ${(props) => props.direction === "left" && "left: 10px;"}
   ${(props) => props.direction === "right" && "right: 10px;"}
   cursor: pointer;
-  opacity: 2;
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
   z-index: 2;
 `;
 
@@ -67,18 +67,18 @@ const InfoContainer = styled.div`
 
 const ImgContainer = styled.div`
   height: 100%;
-  position: relative; /* Add this line to make the container positioned */
+  position: relative; 
 `;
 
 const Image = styled.img`
   max-height: 100%;
   max-width: 100%;
-  position: relative; /* Add this line to make the image positioned */
-  z-index: 1; /* Ensure the image is behind the button */
+  position: relative;
+  z-index: 1;
 `;
 
 const Button = styled.button`
-  position: fixed; /* Change to fixed positioning */
+  position: fixed; 
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -92,6 +92,20 @@ const Button = styled.button`
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 768); // Adjust the breakpoint as needed
+    };
+
+    handleResize(); // Check on initial render
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const handleClick = (direction) => {
     if (direction === "left") {
       setSlideIndex(slideIndex > 0 ? slideIndex - 1 : sliderItems.length - 1);
@@ -101,27 +115,45 @@ const Slider = () => {
   };
 
   return (
-    <Container>
-      <Arrow direction="left" onClick={() => handleClick("left")}>
-        <ArrowLeftOutlined style={{ color: "#ffffff" }} />
-      </Arrow>
-      <Wrapper slideIndex={slideIndex}>
-        {sliderItems.map((item) => (
-          <Slide key={item.id}>
-            <ImgContainer>
-              <Image src={item.img} alt={item.title} />
-            </ImgContainer>
-            <InfoContainer>
-              <Title>{item.title}</Title>
-              <Desc>{item.desc}</Desc>
-              <Button>SHOP NOW</Button>
-            </InfoContainer>
-          </Slide>
-        ))}
-      </Wrapper>
-      <Arrow direction="right" onClick={() => handleClick("right")}>
-        <ArrowRightOutlined style={{ color: "#ffffff" }} />
-      </Arrow>
+    <Container 
+      isMobile={isMobileView}
+    >
+      {isMobileView ? (
+        <ImgContainer>
+          <Image src={backgroundImage} alt="Background" />
+        </ImgContainer>
+      ) : (
+        <>
+          <Arrow 
+            direction="left" 
+            onClick={() => handleClick("left")} 
+            isVisible={isHovering}
+          >
+            <ArrowLeftOutlined style={{ color: "#ffffff" }} />
+          </Arrow>
+          <Wrapper slideIndex={slideIndex}>
+            {sliderItems.map((item) => (
+              <Slide key={item.id}>
+                <ImgContainer>
+                  <Image src={item.img} alt={item.title} />
+                </ImgContainer>
+                <InfoContainer>
+                  <Title>{item.title}</Title>
+                  <Desc>{item.desc}</Desc>
+                  <Button>SHOP NOW</Button>
+                </InfoContainer>
+              </Slide>
+            ))}
+          </Wrapper>
+          <Arrow 
+            direction="right" 
+            onClick={() => handleClick("right")} 
+            isVisible={isHovering}
+          >
+            <ArrowRightOutlined style={{ color: "#ffffff" }} />
+          </Arrow>
+        </>
+      )}
     </Container>
   );
 };

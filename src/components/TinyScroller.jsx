@@ -1,18 +1,21 @@
-
-
-
-
-// TinyScroller.js
-
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const scrollAnimation = keyframes`
+const scrollAnimationDesktop = keyframes`
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(100%);
+  }
+`;
+
+const scrollAnimationMobile = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(200%);
   }
 `;
 
@@ -25,14 +28,19 @@ const ScrollContainer = styled.div`
 
 const Content = styled.div`
   white-space: nowrap;
-  animation: ${scrollAnimation} 10s linear infinite; /* Adjust duration as needed */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: ${({ isMobile }) => (isMobile ? scrollAnimationMobile : scrollAnimationDesktop)};
+  animation-duration: ${({ isMobile }) => (isMobile ? '20s' : '40s')}; /* Adjust duration for mobile and desktop */
+  color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Text color */
+  background-color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Background color */
 `;
 
 const Scroller = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: red; /* Adjust color as needed */
+  background-color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Scroller background color */
   height: 100%;
 `;
 
@@ -54,13 +62,16 @@ const TinyScroller = () => {
     };
   }, []);
 
+  // Determine animation details based on viewport width
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <ScrollContainer id="scrollContainer">
-      <Content>
+      <Content isMobile={isMobile}>
         {/* Your website content goes here */}
         FOR INFO UPDATE
       </Content>
-      <Scroller style={{ width: `${scrollPercentage}%` }}></Scroller>
+      <Scroller style={{ width: `${scrollPercentage}%` }} isMobile={isMobile}></Scroller>
     </ScrollContainer>
   );
 };

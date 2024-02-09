@@ -5,9 +5,13 @@ const Container = styled.div`
   margin: 3px;
   height: 70vh;
   position: relative;
+  background-color: white; /* Default background color */
+  color: black; /* Default text color */
 
   @media (max-width: 768px) {
     height: auto;
+    background-color: black; /* Change background color to black for mobile view */
+    color: white; /* Change text color to white for mobile view */
   }
 `;
 
@@ -27,19 +31,20 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background for better readability */
-  padding: 20px; /* Add padding for better spacing on smaller screens */
+  padding: 20px;
 
   @media (max-width: 768px) {
-    position: static; /* Remove absolute positioning on smaller screens */
-    background: none; /* Remove background color on smaller screens */
+    position: static;
   }
 `;
 
 const Title = styled.h1`
-  color: black;
   margin-bottom: 20px;
-  text-align: center; /* Center the text on smaller screens */
+  text-align: center;
+
+  @media (max-width: 768px) {
+    color: white; /* Adjust text color for mobile view */
+  }
 `;
 
 const Button = styled.button`
@@ -49,6 +54,11 @@ const Button = styled.button`
   color: gray;
   cursor: pointer;
   font-weight: 600;
+
+  @media (max-width: 768px) {
+    background-color: transparent; /* Adjust button background color for mobile view */
+    color: white; /* Adjust button text color for mobile view */
+  }
 `;
 
 const CategoryItem = ({ item }) => {

@@ -2,16 +2,24 @@ import { Badge } from "@material-ui/core";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
-import Img from '../assets/images/logo.jpeg';
+import Img from '../assets/images/logo.jpeg'; // Default logo for desktop view
+import MobileImg from '../assets/images/mobile-logo.png'; // Mobile logo
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import TinyScroller from "./TinyScroller";
 
 const Container = styled.div`
   height: 250px;
-  position: sticky; /* Make the container sticky */
-  top: 0; /* Stick it to the top */
+  position: sticky;
+  top: 0;
   z-index: 10;
-  background-color: white; /* Add a background color to prevent overlapping content */
+  background-color: white; /* Default background color */
+  color: black; /* Default text color */
+
+  @media (max-width: 768px) {
+    background-color: black; /* Change background color to black for mobile view */
+    color: white; /* Change text color to white for mobile view */
+  }
 `;
 
 const Wrapper = styled.div`
@@ -32,7 +40,7 @@ const Left = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    display: none; /* Hide in mobile view */
+    display: none;
   }
 `;
 
@@ -52,7 +60,7 @@ const Right = styled.div`
   justify-content: flex-end;
 
   @media (max-width: 768px) {
-    display: none; /* Hide in mobile view */
+    display: none;
   }
 `;
 
@@ -60,7 +68,7 @@ const MenuItemLink = styled(Link)`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
-  text-decoration: none; /* Remove underlines */
+  text-decoration: none;
 `;
 
 const WebMenu = styled.div`
@@ -82,7 +90,7 @@ const MobileMenuIcon = styled.div`
   right: 20px;
 
   @media (min-width: 769px) {
-    display: none; /* Hide in desktop view */
+    display: none;
   }
 `;
 
@@ -90,14 +98,15 @@ const MobileMenu = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
-  display: none; /* Initially hide in mobile view */
+  display: none;
 
   @media (max-width: 768px) {
-    display: flex; /* Show in mobile view */
+    display: flex;
   }
 `;
 
 const Navbar = () => {
+  const quantity = useSelector(state=>state.cart.quantity)
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -115,18 +124,27 @@ const Navbar = () => {
         </Left>
 
         <Center>
-          <Logo>
-            <img src={Img} alt='LMRIP' />
-          </Logo>
+          <Link to="/">
+            <Logo>
+              {/* Conditionally render the logo based on viewport width */}
+              {window.innerWidth > 768 ? (
+                <img src={Img} alt='LMRIP' />
+              ) : (
+                <img src={MobileImg} alt='LMRIP Mobile' />
+              )}
+            </Logo>
+          </Link>
         </Center>
 
         <Right>
           <MenuItemLink>LOG IN</MenuItemLink>
-          {window.innerWidth > 768 && (  // Check window width before rendering Badge
+          {window.innerWidth > 768 && (  
             <MenuItemLink>
-              <Badge badgeContent={4} color="primary">
-                <ShoppingCartOutlined />
-              </Badge>
+              <Link to="/cart">
+                <Badge badgeContent={quantity} color="primary">
+                  <ShoppingCartOutlined />
+                </Badge>
+              </Link>
             </MenuItemLink>
           )}
         </Right>
