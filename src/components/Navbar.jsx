@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import TinyScroller from "./TinyScroller";
 
 const Container = styled.div`
-  height: 250px;
+  height: 150px;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -120,11 +120,7 @@ const Navbar = () => {
       <MobileMenuIcon onClick={toggleMobileMenu}>☰</MobileMenuIcon>
       <Wrapper>
         <Left>
-          <MenuItemLink>CONTACT US</MenuItemLink>
-        </Left>
-
-        <Center>
-          <Link to="/">
+        <Link to="/">
             <Logo>
               {/* Conditionally render the logo based on viewport width */}
               {window.innerWidth > 768 ? (
@@ -134,6 +130,18 @@ const Navbar = () => {
               )}
             </Logo>
           </Link>
+        </Left>
+
+        <Center>
+        <WebMenu>
+        <MenuItemLink to="/new">NEW IN</MenuItemLink>
+          <MenuItemLink to="/sales">SALES</MenuItemLink>
+          <MenuItemLink to="/apparels">APPARELS</MenuItemLink>
+          <MenuItemLink to="/kids">KIDS</MenuItemLink>
+          <MenuItemLink to="/gifts">GIFTS</MenuItemLink>
+          <MenuItemLink to="/brands">BRANDS</MenuItemLink>
+          <MenuItemLink to="/contact">CONTACT</MenuItemLink>
+      </WebMenu>
         </Center>
 
         <Right>
@@ -151,14 +159,7 @@ const Navbar = () => {
 
       </Wrapper>
 
-      <WebMenu>
-        <MenuItemLink>NEW IN</MenuItemLink>
-        <MenuItemLink>SALES</MenuItemLink>
-        <MenuItemLink>APPARELS</MenuItemLink>
-        <MenuItemLink>KIDS</MenuItemLink>
-        <MenuItemLink>GIFTS</MenuItemLink>
-        <MenuItemLink>BRANDS</MenuItemLink>
-      </WebMenu>
+ 
 
       {isMobileMenuOpen && (
         <MobileMenu>
@@ -168,6 +169,7 @@ const Navbar = () => {
           <MenuItemLink to="/kids">KIDS</MenuItemLink>
           <MenuItemLink to="/gifts">GIFTS</MenuItemLink>
           <MenuItemLink to="/brands">BRANDS</MenuItemLink>
+          <MenuItemLink to="/contact">CONTACT US</MenuItemLink>
         </MobileMenu>
       )}
     </Container>
