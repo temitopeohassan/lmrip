@@ -38,10 +38,6 @@ const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
 `;
 
 const Center = styled.div`
@@ -51,6 +47,17 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      content: url(${MobileImg});
+    }
+  }
 `;
 
 const Right = styled.div`
@@ -69,6 +76,15 @@ const MenuItemLink = styled(Link)`
   cursor: pointer;
   margin-left: 25px;
   text-decoration: none;
+  color: black;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    color: white; /* Change text color to white for mobile view */
+  }
 `;
 
 const WebMenu = styled.div`
@@ -88,6 +104,7 @@ const MobileMenuIcon = styled.div`
   position: absolute;
   top: 10px;
   right: 20px;
+  color: white; /* Change icon color to white for mobile view */
 
   @media (min-width: 769px) {
     display: none;
@@ -120,46 +137,36 @@ const Navbar = () => {
       <MobileMenuIcon onClick={toggleMobileMenu}>☰</MobileMenuIcon>
       <Wrapper>
         <Left>
-        <Link to="/">
+          <Link to="/">
             <Logo>
-              {/* Conditionally render the logo based on viewport width */}
-              {window.innerWidth > 768 ? (
-                <img src={Img} alt='LMRIP' />
-              ) : (
-                <img src={MobileImg} alt='LMRIP Mobile' />
-              )}
+              <img src={Img} alt='LMRIP' />
             </Logo>
           </Link>
         </Left>
 
         <Center>
-        <WebMenu>
-        <MenuItemLink to="/new">NEW IN</MenuItemLink>
-          <MenuItemLink to="/sales">SALES</MenuItemLink>
-          <MenuItemLink to="/apparels">APPARELS</MenuItemLink>
-          <MenuItemLink to="/kids">KIDS</MenuItemLink>
-          <MenuItemLink to="/gifts">GIFTS</MenuItemLink>
-          <MenuItemLink to="/brands">BRANDS</MenuItemLink>
-          <MenuItemLink to="/contact">CONTACT</MenuItemLink>
-      </WebMenu>
+          <WebMenu>
+            <MenuItemLink to="/new">NEW IN</MenuItemLink>
+            <MenuItemLink to="/sales">SALES</MenuItemLink>
+            <MenuItemLink to="/apparels">APPARELS</MenuItemLink>
+            <MenuItemLink to="/kids">KIDS</MenuItemLink>
+            <MenuItemLink to="/gifts">GIFTS</MenuItemLink>
+            <MenuItemLink to="/brands">BRANDS</MenuItemLink>
+            <MenuItemLink to="/contact">CONTACT</MenuItemLink>
+          </WebMenu>
         </Center>
 
         <Right>
           <MenuItemLink>LOG IN</MenuItemLink>
-          {window.innerWidth > 768 && (  
-            <MenuItemLink>
-              <Link to="/cart">
-                <Badge badgeContent={quantity} color="primary">
-                  <ShoppingCartOutlined />
-                </Badge>
-              </Link>
-            </MenuItemLink>
-          )}
+          <MenuItemLink>
+            <Link to="/cart">
+              <Badge badgeContent={quantity} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </Link>
+          </MenuItemLink>
         </Right>
-
       </Wrapper>
-
- 
 
       {isMobileMenuOpen && (
         <MobileMenu>
