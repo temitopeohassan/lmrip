@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, createGlobalStyle } from 'styled-components';
 
 const scrollAnimationDesktop = keyframes`
   0% {
@@ -19,16 +19,18 @@ const scrollAnimationMobile = keyframes`
   }
 `;
 
+// Global style to set the background color of the entire page in mobile view
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${({ isMobile }) => (isMobile ? 'black' : 'white')};
+  }
+`;
+
 const ScrollContainer = styled.div`
   width: 100%;
   height: 20px; /* Adjust the height as needed */
   overflow: hidden;
   position: relative;
-  color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Text color */
-  background-color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Background color */
-  @media (min-width: 769px) {
-    color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Text color */
-    background-color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Background color */
 `;
 
 const Content = styled.div`
@@ -37,14 +39,13 @@ const Content = styled.div`
   animation-iteration-count: infinite;
   animation-name: ${({ isMobile }) => (isMobile ? scrollAnimationMobile : scrollAnimationDesktop)};
   animation-duration: ${({ isMobile }) => (isMobile ? '20s' : '40s')}; /* Adjust duration for mobile and desktop */
-  color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Text color */
-  background-color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Background color */
+  color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Text color */
+  background-color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Background color */
   @media (min-width: 769px) {
-    color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Text color */
-    background-color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Background color */
+    color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Text color */
+    background-color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Background color */
   }
 `;
-
 
 const Scroller = styled.div`
   position: absolute;
@@ -76,13 +77,16 @@ const TinyScroller = () => {
   const isMobile = window.innerWidth <= 768;
 
   return (
-    <ScrollContainer id="scrollContainer">
-      <Content isMobile={isMobile}>
-        {/* Your website content goes here */}
-        FOR INFO UPDATE
-      </Content>
-      <Scroller style={{ width: `${scrollPercentage}%` }} isMobile={isMobile}></Scroller>
-    </ScrollContainer>
+    <>
+      <GlobalStyle isMobile={isMobile} />
+      <ScrollContainer id="scrollContainer">
+        <Content isMobile={isMobile}>
+          {/* Your website content goes here */}
+          FOR INFO UPDATE
+        </Content>
+        <Scroller style={{ width: `${scrollPercentage}%` }} isMobile={isMobile}></Scroller>
+      </ScrollContainer>
+    </>
   );
 };
 
