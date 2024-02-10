@@ -24,6 +24,11 @@ const ScrollContainer = styled.div`
   height: 20px; /* Adjust the height as needed */
   overflow: hidden;
   position: relative;
+  color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Text color */
+  background-color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Background color */
+  @media (min-width: 769px) {
+    color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Text color */
+    background-color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Background color */
 `;
 
 const Content = styled.div`
@@ -32,9 +37,14 @@ const Content = styled.div`
   animation-iteration-count: infinite;
   animation-name: ${({ isMobile }) => (isMobile ? scrollAnimationMobile : scrollAnimationDesktop)};
   animation-duration: ${({ isMobile }) => (isMobile ? '20s' : '40s')}; /* Adjust duration for mobile and desktop */
-  color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Text color */
-  background-color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Background color */
+  color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Text color */
+  background-color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Background color */
+  @media (min-width: 769px) {
+    color: ${({ isMobile }) => (isMobile ? 'white' : 'black')}; /* Text color */
+    background-color: ${({ isMobile }) => (isMobile ? 'black' : 'white')}; /* Background color */
+  }
 `;
+
 
 const Scroller = styled.div`
   position: absolute;
