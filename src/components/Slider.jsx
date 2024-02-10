@@ -10,7 +10,10 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
-  background-color: ${(props) => (props.isMobile ? "#000000" : "transparent")}; /* Set background color to black in mobile view */
+  background-color: ${(props) => (props.isMobile ? "#000000" : "transparent")};
+  background-image: ${(props) => (props.isMobile ? `url(${backgroundImage})` : "none")};
+  background-size: cover;
+  background-position: center;
 `;
 
 const Arrow = styled.div`
@@ -49,7 +52,7 @@ const InfoContainer = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  height: 100%;
+  flex: 1; /* Occupy full height */
   position: relative;
 `;
 
@@ -121,11 +124,7 @@ const Slider = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {isMobileView ? (
-        <ImgContainer>
-          <Image src={backgroundImage} alt="Background" />
-        </ImgContainer>
-      ) : (
+      {isMobileView ? null : (
         <>
           <Arrow 
             direction="left" 

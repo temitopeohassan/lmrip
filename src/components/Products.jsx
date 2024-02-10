@@ -17,8 +17,16 @@ const Title = styled.h1`
 `;
 
 const ProductWrapper = styled.div`
-  width: 50%; /* Set width to 50% to display 2 items per row */
-  padding: 10px; /* Adjust padding as needed */
+width: 100%; /* Set width to 50% to display 2 items per row */
+padding: 10px; /* Adjust padding as needed */
+  
+  @media (min-width: 768px) {
+    width: 48%; /* Set width to 48% for devices larger than 768px */
+  }
+
+  @media (min-width: 1024px) {
+    width: 50%; /* Set width to 32% for devices larger than 1024px */
+  }
 `;
 
 const Products = ({ cat, filters, sort }) => {
