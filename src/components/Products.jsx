@@ -13,7 +13,12 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  margin-bottom: 2px;
+  margin-bottom: 5px;
+  color: ${props => props.mobileView ? 'white' : 'black'};
+
+  @media (min-width: 768px) {
+    color: black; /* Adjust the color for larger screens if needed */
+  }
 `;
 
 const ProductWrapper = styled.div`
@@ -33,7 +38,7 @@ const Products = ({ cat, filters, sort }) => {
 
   return (
    <>
-   <Title>OUR PRODUCTS!</Title>
+   <Title mobileView>OUR PRODUCTS!</Title>
     <Container>
     {popularProducts.map((item) => (
       <ProductWrapper key={item.id}>

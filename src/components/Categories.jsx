@@ -23,12 +23,17 @@ const Container = styled.div`
 
 const Title = styled.h1`
   margin-bottom: 10px;
+  color: ${props => props.mobileView ? 'white' : 'black'};
+
+  @media (min-width: 768px) {
+    color: black; /* Adjust the color for larger screens if needed */
+  }
 `;
 
 const Categories = () => {
   return (
     <>
-      <Title>SHOP CATEGORIES</Title>
+      <Title mobileView>SHOP CATEGORIES</Title>
       <Container>
         {categories.map((item) => (
           <CategoryItem item={item} key={item.id} />
