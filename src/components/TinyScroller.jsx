@@ -82,7 +82,7 @@ const TinyScroller = () => {
       <ScrollContainer id="scrollContainer">
         <Content isMobile={isMobile}>
           {/* Your website content goes here */}
-          FOR INFO UPDATE
+          New Collection ALL Black. Love and Live your Life.
         </Content>
         <Scroller style={{ width: `${scrollPercentage}%` }} isMobile={isMobile}></Scroller>
       </ScrollContainer>

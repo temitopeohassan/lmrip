@@ -2,6 +2,8 @@ import { Instagram, MailOutline } from "@material-ui/icons";
 import styled from "styled-components";
 import Img from '../assets/images/footer-logo.jpeg';
 import MobileImg from '../assets/images/mobile-footer-logo.png'; // Mobile logo
+import { Link } from 'react-router-dom';
+
 
 const Container = styled.div`
   display: flex;
@@ -51,6 +53,10 @@ const Center = styled.div`
 
 const Title = styled.h3`
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    color: white; /* Change text color to white for mobile view */
+  }
 `;
 
 const List = styled.ul`
@@ -91,24 +97,28 @@ const Footer = () => {
           <img src={window.innerWidth > 768 ? Img : MobileImg} alt='LMRIP' />
         </Logo>
         <Desc>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget convallis velit. Integer eu neque molestie, commodo nunc eu, malesuada neque. Proin magna purus, hendrerit fringilla vehicula convallis, tempor sit amet est. Sed ut magna ac justo scelerisque tincidunt id eget ex.
-        </Desc>
+        spread love not hate. peace 
+to your soul not darkness to spirit. 
+air in your lungs. more strength
+to your liver. more fire to 
+your passion, be kind. 
+         </Desc>
       </Left>
       <Center>
         <Title>HELP</Title>
         <List>
-          <ListItem>CONTACT US</ListItem>
-          <ListItem>FAQS</ListItem>
-          <ListItem>PAYMENT METHODS</ListItem>
+          <ListItem><Link to="/main/contact">CONTACT US</Link></ListItem>
+          <ListItem><Link to="/main/faqs">FAQS</Link></ListItem>
+          <ListItem><Link to="/main/payment_methods">PAYMENT METHODS</Link></ListItem>
         </List>
       </Center>
       <Center>
         <Title>LEGAL</Title>
         <List>
-          <ListItem>TERMS & CONDITIONS</ListItem>
-          <ListItem>ACCESSIBILITY</ListItem>
-          <ListItem>PRIVACY POLICY</ListItem>
-          <ListItem>CORPORATE INFORMATION</ListItem>
+          <ListItem><Link to="/main/terms_and_conditions">TERMS & CONDITIONS</Link></ListItem>
+          <ListItem><Link to="/main/accessibility">ACCESSIBILITY</Link></ListItem>
+          <ListItem><Link to="/main/privacy_policy">PRIVACY POLICY</Link></ListItem>
+          <ListItem><Link to="/main/corporate_information">CORPORATE INFORMATION</Link></ListItem>
         </List>
       </Center>
       <Right>

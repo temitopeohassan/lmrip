@@ -148,16 +148,16 @@ const Navbar = () => {
           <WebMenu>
             <MenuItemLink to="/main/new">NEW IN</MenuItemLink>
             <MenuItemLink to="/main/sales">SALES</MenuItemLink>
-            <MenuItemLink to="/main/apparels">APPARELS</MenuItemLink>
+            <MenuItemLink to="/main/adults">ADULTS</MenuItemLink>
             <MenuItemLink to="/main/kids">KIDS</MenuItemLink>
-            <MenuItemLink to="/main/gifts">GIFTS</MenuItemLink>
-            <MenuItemLink to="/main/brands">BRANDS</MenuItemLink>
+            <MenuItemLink to="/main/accessories">ACCESSORIES</MenuItemLink>
+            <MenuItemLink to="/main/brand">BRANDS</MenuItemLink>
             <MenuItemLink to="/main/contact">CONTACT</MenuItemLink>
           </WebMenu>
         </Center>
 
         <Right>
-          <MenuItemLink>LOG IN</MenuItemLink>
+          <MenuItemLink to="/main/login">LOG IN</MenuItemLink>
           <MenuItemLink>
             <Link to="/main/cart">
               <Badge badgeContent={quantity} color="primary">
@@ -172,11 +172,19 @@ const Navbar = () => {
         <MobileMenu>
         <MenuItemLink to="/main/new">NEW IN</MenuItemLink>
         <MenuItemLink to="/main/sales">SALES</MenuItemLink>
-        <MenuItemLink to="/main/apparels">APPARELS</MenuItemLink>
+        <MenuItemLink to="/main/adults">ADULTS</MenuItemLink>
         <MenuItemLink to="/main/kids">KIDS</MenuItemLink>
-        <MenuItemLink to="/main/gifts">GIFTS</MenuItemLink>
-        <MenuItemLink to="/main/brands">BRANDS</MenuItemLink>
+        <MenuItemLink to="/main/accessories">ACCESSORIES</MenuItemLink>
+        <MenuItemLink to="/main/brand">BRANDS</MenuItemLink>
         <MenuItemLink to="/main/contact">CONTACT</MenuItemLink>
+        <MenuItemLink to="/main/login">LOG IN</MenuItemLink>
+          <MenuItemLink>
+            <Link to="/main/cart">
+              <Badge badgeContent={quantity} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </Link>
+          </MenuItemLink>
         </MobileMenu>
       )}
     </Container>
