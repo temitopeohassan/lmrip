@@ -38,17 +38,17 @@ export const sliderItems = [
   export const categories = [
     {
       id: 1,
-      img: require('./assets/images/item1.jpg'),
+      img: require('./assets/images/adultsCat.png'),
       title: "ADULTS",
     },
     {
       id: 2,
-      img: require('./assets/images/item4.jpg'),
+      img: require('./assets/images/children.png'),
       title: " KIDS",
     },
     {
       id: 3,
-      img: require('./assets/images/item0.jpg'),
+      img: require('./assets/images/accessories.png'),
       title: "ACCESSORIES",
     },
   ];

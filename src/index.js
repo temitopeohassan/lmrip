@@ -14,6 +14,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Root from "./routes/Root";
+import MainRoutes from "./routes/MainRoutes"; // Import AdminRoutes component
 import AdminRoutes from "./routes/AdminRoutes"; // Import AdminRoutes component
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -32,6 +33,7 @@ const routes = (
   <Router>
     <Routes>
       <Route path="/*" element={<Root />} />
+      <Route path="/main/*" element={<MainRoutes />} /> {/* Include AdminRoutes component */}
       <Route path="/admin/*" element={<AdminRoutes />} /> {/* Include AdminRoutes component */}
     </Routes>
   </Router>

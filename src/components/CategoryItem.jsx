@@ -41,6 +41,7 @@ const Info = styled.div`
 const Title = styled.h1`
   margin-bottom: 20px;
   text-align: center;
+  color: white;
 
   @media (max-width: 768px) {
     color: white; /* Adjust text color for mobile view */

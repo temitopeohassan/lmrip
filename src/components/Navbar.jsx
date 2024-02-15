@@ -137,7 +137,7 @@ const Navbar = () => {
       <MobileMenuIcon onClick={toggleMobileMenu}>☰</MobileMenuIcon>
       <Wrapper>
         <Left>
-          <Link to="/">
+          <Link to="/main/home">
             <Logo>
               <img src={Img} alt='LMRIP' />
             </Logo>
@@ -146,20 +146,20 @@ const Navbar = () => {
 
         <Center>
           <WebMenu>
-            <MenuItemLink to="/new">NEW IN</MenuItemLink>
-            <MenuItemLink to="/sales">SALES</MenuItemLink>
-            <MenuItemLink to="/apparels">APPARELS</MenuItemLink>
-            <MenuItemLink to="/kids">KIDS</MenuItemLink>
-            <MenuItemLink to="/gifts">GIFTS</MenuItemLink>
-            <MenuItemLink to="/brands">BRANDS</MenuItemLink>
-            <MenuItemLink to="/contact">CONTACT</MenuItemLink>
+            <MenuItemLink to="/main/new">NEW IN</MenuItemLink>
+            <MenuItemLink to="/main/sales">SALES</MenuItemLink>
+            <MenuItemLink to="/main/apparels">APPARELS</MenuItemLink>
+            <MenuItemLink to="/main/kids">KIDS</MenuItemLink>
+            <MenuItemLink to="/main/gifts">GIFTS</MenuItemLink>
+            <MenuItemLink to="/main/brands">BRANDS</MenuItemLink>
+            <MenuItemLink to="/main/contact">CONTACT</MenuItemLink>
           </WebMenu>
         </Center>
 
         <Right>
           <MenuItemLink>LOG IN</MenuItemLink>
           <MenuItemLink>
-            <Link to="/cart">
+            <Link to="/main/cart">
               <Badge badgeContent={quantity} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
@@ -170,13 +170,13 @@ const Navbar = () => {
 
       {isMobileMenuOpen && (
         <MobileMenu>
-          <MenuItemLink to="/new">NEW IN</MenuItemLink>
-          <MenuItemLink to="/sales">SALES</MenuItemLink>
-          <MenuItemLink to="/apparels">APPARELS</MenuItemLink>
-          <MenuItemLink to="/kids">KIDS</MenuItemLink>
-          <MenuItemLink to="/gifts">GIFTS</MenuItemLink>
-          <MenuItemLink to="/brands">BRANDS</MenuItemLink>
-          <MenuItemLink to="/contact">CONTACT US</MenuItemLink>
+        <MenuItemLink to="/main/new">NEW IN</MenuItemLink>
+        <MenuItemLink to="/main/sales">SALES</MenuItemLink>
+        <MenuItemLink to="/main/apparels">APPARELS</MenuItemLink>
+        <MenuItemLink to="/main/kids">KIDS</MenuItemLink>
+        <MenuItemLink to="/main/gifts">GIFTS</MenuItemLink>
+        <MenuItemLink to="/main/brands">BRANDS</MenuItemLink>
+        <MenuItemLink to="/main/contact">CONTACT</MenuItemLink>
         </MobileMenu>
       )}
     </Container>
