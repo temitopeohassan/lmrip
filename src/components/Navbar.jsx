@@ -122,12 +122,19 @@ const MobileMenu = styled.div`
   }
 `;
 
+
+
+
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+  };
+  
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -146,6 +153,7 @@ const Navbar = () => {
 
         <Center>
           <WebMenu>
+            <MenuItemLink to="/main/home">HOME</MenuItemLink>
             <MenuItemLink to="/main/new">NEW IN</MenuItemLink>
             <MenuItemLink to="/main/sales">SALES</MenuItemLink>
             <MenuItemLink to="/main/adults">ADULTS</MenuItemLink>
@@ -170,15 +178,17 @@ const Navbar = () => {
 
       {isMobileMenuOpen && (
         <MobileMenu>
-        <MenuItemLink to="/main/new">NEW IN</MenuItemLink>
-        <MenuItemLink to="/main/sales">SALES</MenuItemLink>
-        <MenuItemLink to="/main/adults">ADULTS</MenuItemLink>
-        <MenuItemLink to="/main/kids">KIDS</MenuItemLink>
-        <MenuItemLink to="/main/accessories">ACCESSORIES</MenuItemLink>
-        <MenuItemLink to="/main/brand">BRANDS</MenuItemLink>
-        <MenuItemLink to="/main/contact">CONTACT</MenuItemLink>
-        <MenuItemLink to="/main/login">LOG IN</MenuItemLink>
-          <MenuItemLink>
+        <MenuItemLink to="/main/home" onClick={closeMobileMenu}>HOME</MenuItemLink>
+        <MenuItemLink to="/main/new" onClick={closeMobileMenu}>NEW IN</MenuItemLink>
+<MenuItemLink to="/main/sales" onClick={closeMobileMenu}>SALES</MenuItemLink>
+<MenuItemLink to="/main/adults" onClick={closeMobileMenu}>ADULTS</MenuItemLink>
+<MenuItemLink to="/main/kids" onClick={closeMobileMenu}>KIDS</MenuItemLink>
+<MenuItemLink to="/main/accessories" onClick={closeMobileMenu}>ACCESSORIES</MenuItemLink>
+<MenuItemLink to="/main/brand" onClick={closeMobileMenu}>BRANDS</MenuItemLink>
+<MenuItemLink to="/main/contact" onClick={closeMobileMenu}>CONTACT</MenuItemLink>
+<MenuItemLink to="/main/login" onClick={closeMobileMenu}>LOG IN</MenuItemLink>
+
+          <MenuItemLink onClick={closeMobileMenu}>
             <Link to="/main/cart">
               <Badge badgeContent={quantity} color="primary">
                 <ShoppingCartOutlined />

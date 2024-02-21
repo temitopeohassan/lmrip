@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 import { useDispatch, useSelector } from "react-redux";
+import Img from '../assets/images/hero1.jpg';
 
 const Container = styled.div`
   width: 100vw;
@@ -11,9 +12,15 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-      center;
-  background-size: cover;
+    background-position: top; /* Change background position to show from the top */
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: inline-block;
+    background-image: url(${props => props.backgroundImage});
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +86,7 @@ const Login = () => {
     login(dispatch, { username, password });
   };
   return (
-    <Container>
+    <Container   style={{ backgroundImage:  `url(${Img})` }}>
       <Wrapper>
         <Title>SIGN IN</Title>
         <Form>
