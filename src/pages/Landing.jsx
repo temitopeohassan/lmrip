@@ -1,4 +1,14 @@
-import React from 'react';
+
+
+
+
+
+
+
+
+
+
+import React, { useState} from 'react';
 import styled from 'styled-components';
 import { Button, Checkbox, FormControlLabel } from '@material-ui/core';
 import { Facebook, Twitter, Instagram } from '@material-ui/icons';
@@ -68,7 +78,7 @@ const StyledSlide = styled.div`
     text-align: left;
     box-sizing: border-box;
     height: 600px;
-    background-position: 50%;
+    background-position: top; /* Change background position to show from the top */
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
@@ -79,6 +89,7 @@ const StyledSlide = styled.div`
     background-image: url(${props => props.backgroundImage});
 `;
 
+
 const SlideContent = styled.div`
     // Add your styles for slide content here
 `;
@@ -87,6 +98,7 @@ const FormContainer = styled.div`
     position: relative;
     top: 200px;
     left: 700px;
+    border-radius: 25px;
     background-color: rgba(0, 0, 0, 0.5); /* Opaque grey background */
     padding: 20px; /* Add padding for spacing */
     max-width: 500px; /* Limit width of the form container */
@@ -97,12 +109,14 @@ const FormContainer = styled.div`
         width: 100%;
         max-width: 100%; /* Set maximum width for form elements */
         padding: 10px;
+        border-radius: 25px;
         margin-bottom: 10px;
     }
 
     /* Style button */
     button[type="submit"] {
         width: 100%;
+        border-radius: 25px;
     }
 
     @media (max-width: 768px) {
@@ -112,19 +126,39 @@ const FormContainer = styled.div`
     }
 `;
 
+const EnterContainer = styled.div`
+    position: relative;
+    top: 200px;
+    left: 700px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.5); /* Opaque grey background */
+    padding: 20px; /* Add padding for spacing */
+    max-width: 500px; /* Limit width of the form container */
+
+
+    /* Style button */
+    button[type="submit"] {
+        width: 100%;
+        border-radius: 25px;
+    }
+
+    @media (max-width: 768px) {
+        top: 200px;
+        left: 0;
+        width: 100%;
+    }
+`;
 
 // Styled component for form elements
 const FormElement = styled.input`
     border: 1px solid white;
     border-radius: 5px;
-    padding: 10px;
 `;
 
 // Styled component for checkbox (Material-UI)
 const StyledCheckbox = styled(Checkbox)`
     && {
-        border: 1px solid white;
-        border-radius: 5px;
+        color: white; /* Set the color to white */        border-radius: 5px;
         padding: 10px;
     }
 `;
@@ -136,10 +170,48 @@ const InlineLabel = styled.label`
 `;
 
 const Landing = () => {
-    const navigate = useNavigate(); // Initialize useNavigate hook
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({ name: '', email: '', agreed: false });
+    const [formSubmitted, setFormSubmitted] = useState(false);
+
+    const handleInputChange = (e) => {
+        const { name, value, checked, type } = e.target;
+        const val = type === 'checkbox' ? checked : value;
+        setFormData(prevState => ({ ...prevState, [name]: val }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // Check if all required fields are filled
+        if (formData.name && formData.email && formData.agreed) {
+            try {
+                const response = await fetch('https://lmripdb-3dir.onrender.com/api/catalogue', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                if (response.ok) {
+                    setFormSubmitted(true);
+                } else {
+                    console.error('Error submitting form');
+                }
+            } catch (error) {
+                console.error('Error submitting form', error);
+            }
+        } else {
+            alert('Please fill in all required fields');
+        }
+    };
 
     // Function to handle header button submission
     const handleHeaderButtonClick = () => {
+        // Navigate to /main/home route
+        navigate('/main/home');
+    };
+
+    const handlePostSubmitButtonClick = () => {
         // Navigate to /main/home route
         navigate('/main/home');
     };
@@ -159,28 +231,39 @@ const Landing = () => {
                                 <div className="mt-30">
                                     <div className="row">
                                         <div className="col-lg-12">
-                                            <FormContainer>
-                                                <h3 style={{color: 'white'}}>Receive Our Catalouge</h3>
-                                                <form id="b_search_Form" className="sc-eDLKkx dpfGVm b_search_Form wrap-form d-block" data-mailchimp="true">
-                                                    <div className="row row-equal-height">
-                                                        <div className="col-lg-12 mb-3">
-                                                            <label><input type="text" id="name" placeholder="Name" /></label>
-                                                        </div>
-                                                        <div className="col-lg-12 mb-3">
-                                                            <label><input type="email" id="email" placeholder="Email Address" /></label>
-                                                        </div>
-                                                        <div className="col-lg-12 mb-3">
-                                                            <FormControlLabel
-                                                                control={<Checkbox name="checkedB" color="primary" />}
-                                                                label="I agree to the terms and conditions"
-                                                            />
-                                                        </div>
-                                                        <div className="col-lg-12">
-                                                            <Button variant="contained" color="success" type="submit">Sign Up!</Button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </FormContainer>
+                                        {!formSubmitted && (
+                    <FormContainer>
+                        <h3 style={{ color: 'white' }}>Receive Our Catalogue</h3>
+                        <form onSubmit={handleSubmit}>
+                            <div className="row row-equal-height">
+                                <div className="col-lg-12 mb-3">
+                                    <label><input type="text" id="name" name="name" placeholder="Name" value={formData.name} onChange={handleInputChange} required /></label>
+                                </div>
+                                <div className="col-lg-12 mb-3">
+                                    <label><input type="email" id="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleInputChange} required /></label>
+                                </div>
+                                <div className="col-lg-12 mb-3">
+                                    <FormControlLabel style={{ color:  'white' }}
+                                        control={<Checkbox name="agreed" style={{ color:  'white' }} checked={formData.agreed} onChange={handleInputChange} />}
+                                        label="I agree to the terms and conditions"
+                                    />
+                                </div>
+                                <div className="col-lg-12">
+                                    <Button variant="contained" color="primary" type="submit">Sign Up!</Button>
+                                </div>
+                            </div>
+                        </form>
+                    </FormContainer>
+                )}
+                {formSubmitted && (
+                            <div>
+                                <EnterContainer>
+                                <h1 style={{ color: 'white' }}>Form Successfully submitted</h1>
+                                <Button variant="contained" color="primary" onClick={handlePostSubmitButtonClick}>Enter Site</Button>
+                                </EnterContainer>
+                            </div>
+                        )}
+                    
                                         </div>
                                     </div>
                                 </div>

@@ -49,7 +49,18 @@ const Root = () => {
         <Route path="/products/:category" element={<ProductList />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
-       
+        <Route
+          path="/success"
+          element={user ? <Success /> : <Navigate to="/" />} // Redirect if user not logged in
+        />
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/" /> : <Login />} // Redirect if user logged in
+        />
+        <Route
+          path="/register"
+          element={user ? <Navigate to="/" /> : <Register />} // Redirect if user logged in
+        />
       </Routes>
       <Footer />
     </>
