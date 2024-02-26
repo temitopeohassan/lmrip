@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate instead of useHistory
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -8,7 +10,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://lmrip.vercel.app/static/media/hero1.e760b459b7317b5a9f53.jpg")
       center;
   background-size: cover;
   display: flex;
@@ -55,22 +57,93 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      console.log(data); // handle response data as needed
+      
+      // Redirect to login page
+      navigate("/login");
+    } catch (error) {
+      console.error("Error submitting registration form:", error);
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
-        <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Input placeholder="confirm password" />
+        <Form onSubmit={handleSubmit}>
+          <Input
+            placeholder="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <Input
+            placeholder="last name"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+          />
+          <Input
+            placeholder="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+          />
+          <Input
+            placeholder="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <Input
+            placeholder="password"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+          <Input
+            placeholder="confirm password"
+            type="password"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+          />
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button>CREATE</Button>
+          <Button type="submit">CREATE</Button>
         </Form>
       </Wrapper>
     </Container>

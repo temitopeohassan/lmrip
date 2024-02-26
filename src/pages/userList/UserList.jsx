@@ -1,17 +1,31 @@
 import "./userList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function UserList() {
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Fetch user data from the API endpoint
+    fetch("http://localhost:5000/api/users")
+      .then((response) => response.json())
+      .then((data) => {
+        // Add id property to each row of data
+        const modifiedData = data.map((item) => ({
+          ...item,
+          id: item._id, // Assuming _id is the unique identifier
+        }));
+        setData(modifiedData);
+      })
+      .catch((error) => console.error("Error fetching user data:", error));
+  }, []);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-  
+
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {

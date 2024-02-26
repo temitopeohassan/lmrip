@@ -32,16 +32,22 @@ export default function Home() {
     const getStats = async () => {
       try {
         const res = await userRequest.get("/users/stats");
+        console.log("Request headers:", res.config.headers); // Log request headers
+        console.log("Response from /users/stats:", res.data); // Log response data
         res.data.map((item) =>
           setUserStats((prev) => [
             ...prev,
             { name: MONTHS[item._id - 1], "Active User": item.total },
           ])
         );
-      } catch {}
+      } catch (error) {
+        console.error("Error fetching stats:", error); // Log any errors
+      }
     };
+    
     getStats();
   }, [MONTHS]);
+  
 
   return (
     <div className="home">

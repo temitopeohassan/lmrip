@@ -43,8 +43,8 @@ const Products = ({ cat, filters, sort }) => {
       try {
         const res = await axios.get(
           cat
-            ? `https://lmripdb-3dir.onrender.com/api/products?category=${cat}`
-            : "https://lmripdb-3dir.onrender.com/api/products"
+            ? `http://localhost:5000/api/products?category=${cat}`
+            : "http://localhost:5000/api/products"
         );
         setProducts(res.data);
       } catch (err) {}

@@ -108,14 +108,13 @@ const FormContainer = styled.div`
     input[type="email"] {
         width: 100%;
         max-width: 100%; /* Set maximum width for form elements */
-        padding: 10px;
         border-radius: 25px;
         margin-bottom: 10px;
     }
 
     /* Style button */
     button[type="submit"] {
-        width: 100%;
+        width: 40%;
         border-radius: 25px;
     }
 

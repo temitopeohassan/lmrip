@@ -9,6 +9,7 @@ import User from "../pages/user/User";
 import NewUser from "../pages/newUser/NewUser";
 import ProductList from "../pages/productList/ProductList";
 import Product from "../pages/product/Product";
+import NewProduct from "../pages/newProduct/NewProduct";
 import Login from "../pages/login/Login";
 import { useSelector } from "react-redux";
 
@@ -17,29 +18,28 @@ const AdminRoutes = () => {
   const isAdmin = currentUser?.isAdmin || false;
 
   return (
-    <Routes>
-      {currentUser ? (
-        <>
-          <Route path="/" element={<Navigate to="home" replace />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/users" element={<UserList />} />
-          <Route path="/user/:userId" element={<User />} />
-          <Route path="/newUser" element={<NewUser />} />
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/product/:productId" element={<Product />} />
-          {isAdmin && (
+    <>
+      {isAdmin && <Topbar />}
+      <div className="container">
+        {isAdmin && <Sidebar />}
+        <Routes>
+          {currentUser ? (
             <>
-              <Topbar />
-              <div className="container">
-                <Sidebar />
-              </div>
+              <Route path="/" element={<Navigate to="home" replace />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/users" element={<UserList />} />
+              <Route path="/user/:userId" element={<User />} />
+              <Route path="/newUser" element={<NewUser />} />
+              <Route path="/products" element={<ProductList />} />
+              <Route path="/newproduct" element={<NewProduct />} />
+              <Route path="/product/:productId" element={<Product />} />
             </>
+          ) : (
+            <Route path="*" element={<Login />} />
           )}
-        </>
-      ) : (
-        <Route path="*" element={<Login />} />
-      )}
-    </Routes>
+        </Routes>
+      </div>
+    </>
   );
 };
 
