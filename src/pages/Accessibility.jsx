@@ -71,7 +71,7 @@ const Brand = () => {
 </p>
 <H3>Conformance status</H3>
 <p>
-	The <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines (WCAG)</a> defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.
+	The <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target='_blank'>Web Content Accessibility Guidelines (WCAG)</a> defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.
 	LMRIP
 	is
 	partially conformant

@@ -1,8 +1,11 @@
+
+
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { sliderItems } from "../data";
 import backgroundImage from "../assets/images/background-photo-mobile-devices.png"; // Import your static image
+import "../font.css";
 
 const Container = styled.div`
   width: 100%;
@@ -42,15 +45,16 @@ const Wrapper = styled.div`
 `;
 
 const InfoContainer = styled.div`
+  font-family: "Medium"; /* Apply the custom font family */
   position: absolute; /* Change to absolute positioning */
-  top: 50%;
+  bottom: 20px; /* Adjust the distance from the bottom */
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   padding: 20px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5); /* Add background color for better readability */
+  z-index: 2; /* Ensure the InfoContainer is above the image */
 `;
-
 const ImgContainer = styled.div`
   flex: 1; /* Occupy full height */
   position: relative;
@@ -76,6 +80,7 @@ const Title = styled.h1`
   font-size: 3.5vw;
   margin-bottom: 20px;
   color: #ffffff; /* Add text color */
+  font-family: "Medium"; /* Apply the custom font family */
 `;
 
 const Desc = styled.p`
@@ -83,6 +88,7 @@ const Desc = styled.p`
   font-size: 1.5vw;
   font-weight: 500;
   letter-spacing: 1px;
+  font-family: "Medium"; /* Apply the custom font family */
   color: #ffffff; /* Add text color */
 `;
 

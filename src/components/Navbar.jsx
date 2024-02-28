@@ -3,6 +3,8 @@
 
 
 
+
+
 import { Badge } from "@material-ui/core";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
@@ -124,11 +126,13 @@ const MobileMenu = styled.div`
   align-items: center;
   margin-top: 10px;
   display: none;
+  background-color: rgba(0, 0, 0, 0.8); /* Set the background color with opacity */
 
   @media (max-width: 768px) {
     display: flex;
   }
 `;
+
 
 
 

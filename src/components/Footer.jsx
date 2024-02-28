@@ -1,15 +1,16 @@
-import { Instagram, MailOutline } from "@material-ui/icons";
+import { Instagram, Facebook, MailOutline } from "@material-ui/icons";
 import styled from "styled-components";
 import Img from '../assets/images/footer-logo.jpeg';
 import MobileImg from '../assets/images/mobile-footer-logo.png'; // Mobile logo
 import { Link } from 'react-router-dom';
 import '../font.css';
 
-const Container = styled.div`
+const Container = styled.footer`
   display: flex;
   flex-wrap: wrap;
   background-color: white; /* Default background color */
   color: black; /* Default text color */
+  padding: 20px;
 
   @media (max-width: 768px) {
     background-color: black; /* Change background color to black for mobile view */
@@ -55,8 +56,6 @@ const SocialIcon = styled.div`
   }
 `;
 
-
-
 const Center = styled.div`
   flex: 1;
   padding: 20px;
@@ -93,7 +92,7 @@ const ListItem = styled.li`
 `;
 
 const Right = styled.div`
-  flex: 0; /* Ensure it takes only the necessary space */
+  flex: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -104,14 +103,11 @@ const Right = styled.div`
   }
 `;
 
-
 const ContactItem = styled.div`
-margin-bottom: 20px;
-display: flex;
-align-items: left;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: left;
 `;
-
-
 
 const Footer = () => {
   return (
@@ -150,13 +146,19 @@ const Footer = () => {
         <Title>FIND US</Title>
         <ContactItem>
           <SocialIcon>
+            <Facebook style={{ marginRight: "1px"}}/>Facebook
+          </SocialIcon>
+           
+        </ContactItem>
+        <ContactItem>
+          <SocialIcon>
             <Instagram style={{ marginRight: "1px"}}/>Instagram
           </SocialIcon>
            
         </ContactItem>
         <ContactItem>
-        <SocialIcon>
-          <MailOutline  /> contact@lmrip.co.uk
+          <SocialIcon>
+            <MailOutline  /> contact@lmrip.co.uk
           </SocialIcon>
         </ContactItem>
       </Right>

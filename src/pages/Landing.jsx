@@ -16,6 +16,7 @@ import LogoImg from '../assets/images/logo.png';
 import MobileLogoImg from '../assets/images/mobile-logo.png'; 
 import Img from '../assets/images/hero1.jpg';
 import { useNavigate } from 'react-router-dom';
+import "../font.css";
 
 const Header = styled.header`
     display: flex;
@@ -77,7 +78,7 @@ const StyledSlide = styled.div`
     color: #212529;
     text-align: left;
     box-sizing: border-box;
-    height: 600px;
+    height: 90vh;
     background-position: top; /* Change background position to show from the top */
     background-repeat: no-repeat;
     background-size: cover;
@@ -87,6 +88,7 @@ const StyledSlide = styled.div`
     width: 100%;
     display: inline-block;
     background-image: url(${props => props.backgroundImage});
+    font-family: "Regular"; /* Apply the custom font family */
 `;
 
 
@@ -101,9 +103,10 @@ const FormContainer = styled.div`
     border-radius: 25px;
     background-color: rgba(0, 0, 0, 0.5); /* Opaque grey background */
     padding: 20px; /* Add padding for spacing */
-    max-width: 500px; /* Limit width of the form container */
+    max-width: 400px; /* Limit width of the form container */
 
     /* Style form elements */
+    font-family: "Regular"; /* Apply the custom font family */
     input[type="text"],
     input[type="email"] {
         width: 100%;
@@ -113,6 +116,7 @@ const FormContainer = styled.div`
     }
 
     /* Style button */
+    font-family: "Regular"; /* Apply the custom font family */
     button[type="submit"] {
         width: 40%;
         border-radius: 25px;
@@ -150,12 +154,14 @@ const EnterContainer = styled.div`
 
 // Styled component for form elements
 const FormElement = styled.input`
+font-family: "Regular"; /* Apply the custom font family */
     border: 1px solid white;
     border-radius: 5px;
 `;
 
 // Styled component for checkbox (Material-UI)
 const StyledCheckbox = styled(Checkbox)`
+font-family: "Regular"; /* Apply the custom font family */
     && {
         color: white; /* Set the color to white */        border-radius: 5px;
         padding: 10px;
@@ -164,6 +170,7 @@ const StyledCheckbox = styled(Checkbox)`
 
 // Styled component for inline label
 const InlineLabel = styled.label`
+font-family: "Regular"; /* Apply the custom font family */
     display: inline-block;
     width: auto;
 `;
@@ -193,6 +200,10 @@ const Landing = () => {
                 });
                 if (response.ok) {
                     setFormSubmitted(true);
+                    // Redirect to /main/home after 3 seconds
+                    setTimeout(() => {
+                        navigate('/main/home');
+                    }, 3000);
                 } else {
                     console.error('Error submitting form');
                 }
@@ -203,24 +214,21 @@ const Landing = () => {
             alert('Please fill in all required fields');
         }
     };
-
+    
     // Function to handle header button submission
     const handleHeaderButtonClick = () => {
         // Navigate to /main/home route
         navigate('/main/home');
     };
 
-    const handlePostSubmitButtonClick = () => {
-        // Navigate to /main/home route
-        navigate('/main/home');
-    };
+  
 
     return (
         <>
             <Header backgroundColor="white" mobileBackgroundColor="black"> {/* Default background color is white */}
                 <Logo src={LogoImg} alt="Logo" />
                 <MobileLogo src={MobileLogoImg} alt="Mobile Logo" />
-                <Button variant="contained" color="primary" onClick={handleHeaderButtonClick}>Shop</Button>
+                <Button variant="contained" color="primary" onClick={handleHeaderButtonClick}>Enter Site</Button>
             </Header>
             <StyledSlide style={{ backgroundImage:  `url(${Img})` }}>
             <SlideContent>
@@ -242,10 +250,12 @@ const Landing = () => {
                                     <label><input type="email" id="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleInputChange} required /></label>
                                 </div>
                                 <div className="col-lg-12 mb-3">
-                                    <FormControlLabel style={{ color:  'white' }}
-                                        control={<Checkbox name="agreed" style={{ color:  'white' }} checked={formData.agreed} onChange={handleInputChange} />}
-                                        label="I agree to the terms and conditions"
-                                    />
+                                <FormControlLabel
+                                    style={{ color: 'white' }}
+                                    control={<Checkbox name="agreed" style={{ color: 'white' }} checked={formData.agreed} />}
+                                    label="I agree to the terms and conditions"
+                                    onChange={(e) => handleInputChange({ target: { name: e.target.name, checked: e.target.checked, type: 'checkbox' } })}
+                                />
                                 </div>
                                 <div className="col-lg-12">
                                     <Button variant="contained" color="primary" type="submit">Sign Up!</Button>
@@ -258,7 +268,6 @@ const Landing = () => {
                             <div>
                                 <EnterContainer>
                                 <h1 style={{ color: 'white' }}>Form Successfully submitted</h1>
-                                <Button variant="contained" color="primary" onClick={handlePostSubmitButtonClick}>Enter Site</Button>
                                 </EnterContainer>
                             </div>
                         )}
@@ -274,9 +283,6 @@ const Landing = () => {
             <Footer backgroundColor="white" mobileBackgroundColor="black"> {/* Default background color is white */}
                 <SocialMediaIcon iconColor="black" mobileIconColor="white"> {/* Default icon color is black */}
                     <Facebook />
-                </SocialMediaIcon>
-                <SocialMediaIcon iconColor="black" mobileIconColor="white">
-                    <Twitter />
                 </SocialMediaIcon>
                 <SocialMediaIcon iconColor="black" mobileIconColor="white">
                     <Instagram />
