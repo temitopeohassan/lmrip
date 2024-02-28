@@ -9,6 +9,7 @@
 import styled from "styled-components";
 import { categories } from "../data";
 import CategoryItem from "./CategoryItem";
+import '../font.css';
 
 const Container = styled.div`
   display: flex;
@@ -23,6 +24,7 @@ const Container = styled.div`
 
 const Title = styled.h1`
   margin-bottom: 10px;
+  font-family: "Medium"; /* Apply the custom font family */
   color: ${props => props.mobileView ? 'white' : 'black'};
 
   @media (min-width: 768px) {

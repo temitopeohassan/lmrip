@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Img from '../assets/images/footer-logo.jpeg';
 import MobileImg from '../assets/images/mobile-footer-logo.png'; // Mobile logo
 import { Link } from 'react-router-dom';
-
+import '../font.css';
 
 const Container = styled.div`
   display: flex;
@@ -33,18 +33,29 @@ const Logo = styled.div`
 
 const Desc = styled.p`
   margin: 5px 0px;
+  font-family: "Regular"; /* Apply the custom font family */
 `;
 
 const SocialIcon = styled.div`
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background-color: black;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
+  align-items: left;
+  justify-content: left;
+  font-family: "Bold"; /* Apply the custom font family */
+
+  /* Default styles for desktop view */
+  background-color: white; /* White background */
+  border: 2px solid white; /* White border */
+
+  @media (max-width: 768px) {
+    /* Styles for mobile view */
+    background-color: black; /* Black background */
+    border: 2px solid black; /* Black border */
+  }
 `;
+
+
 
 const Center = styled.div`
   flex: 1;
@@ -53,6 +64,7 @@ const Center = styled.div`
 
 const Title = styled.h3`
   margin-bottom: 30px;
+  font-family: "Medium"; /* Apply the custom font family */
 
   @media (max-width: 768px) {
     color: white; /* Change text color to white for mobile view */
@@ -69,24 +81,37 @@ const ListItem = styled.li`
   font-size: 14px;
   cursor: pointer;
   margin-bottom: 10px;
+
+  a {
+    color: black; /* Default link color */
+    text-decoration: none;
+
+    @media (max-width: 768px) {
+      color: white; /* Change link color to white for mobile view */
+    }
+  }
 `;
 
 const Right = styled.div`
-  flex: 1;
+  flex: 0; /* Ensure it takes only the necessary space */
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the left */
+
+  @media (max-width: 768px) {
+    align-items: flex-start; /* Align items to the left for mobile view */
+  }
 `;
+
 
 const ContactItem = styled.div`
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
+margin-bottom: 20px;
+display: flex;
+align-items: left;
 `;
 
-const media = {
-  mobile: `@media(max-width: 768px) {
-    flex-basis: 100%; /* Adjust the flex-basis for smaller screens to take up full width */
-  }`,
-};
+
 
 const Footer = () => {
   return (
@@ -97,12 +122,12 @@ const Footer = () => {
           <img src={window.innerWidth > 768 ? Img : MobileImg} alt='LMRIP' />
         </Logo>
         <Desc>
-        spread love not hate. peace 
-to your soul not darkness to spirit. 
-air in your lungs. more strength
-to your liver. more fire to 
-your passion, be kind. 
-         </Desc>
+          spread love not hate. peace 
+          to your soul not darkness to spirit. 
+          air in your lungs. more strength
+          to your liver. more fire to 
+          your passion, be kind. 
+        </Desc>
       </Left>
       <Center>
         <Title>HELP</Title>
@@ -125,12 +150,14 @@ your passion, be kind.
         <Title>FIND US</Title>
         <ContactItem>
           <SocialIcon>
-            <Instagram style={{ color: "white" }} />
+            <Instagram style={{ marginRight: "1px"}}/>Instagram
           </SocialIcon>
-           INSTAGRAM
+           
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{ marginRight: "10px", color: "white" }} /> contact@lmrip.co.uk
+        <SocialIcon>
+          <MailOutline  /> contact@lmrip.co.uk
+          </SocialIcon>
         </ContactItem>
       </Right>
     </Container>

@@ -1,3 +1,8 @@
+
+
+
+
+
 import { Badge } from "@material-ui/core";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
@@ -7,6 +12,8 @@ import MobileImg from '../assets/images/mobile-logo.png'; // Mobile logo
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import TinyScroller from "./TinyScroller";
+import '../font.css';
+
 
 const Container = styled.div`
   height: 150px;
@@ -77,6 +84,7 @@ const MenuItemLink = styled(Link)`
   margin-left: 25px;
   text-decoration: none;
   color: black;
+  font-family: "Extralight"; /* Apply the custom font family */
 
   &:hover {
     text-decoration: none;

@@ -26,6 +26,21 @@ import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Cart from '../pages/Cart';
 import Success from '../pages/Success'; // Import Success component if it exists
+import '../font.css';
+import "../assets/fonts/IBMPlexMono-Bold.ttf";
+import "../assets/fonts/IBMPlexMono-BoldItalic.ttf";
+import "../assets/fonts/IBMPlexMono-ExtraLight.ttf";
+import "../assets/fonts/IBMPlexMono-ExtraLightItalic.ttf";
+import "../assets/fonts/IBMPlexMono-Italic.ttf";
+import "../assets/fonts/IBMPlexMono-Light.ttf";
+import "../assets/fonts/IBMPlexMono-LightItalic.ttf";
+import "../assets/fonts/IBMPlexMono-Medium.ttf";
+import "../assets/fonts/IBMPlexMono-MediumItalic.ttf";
+import "../assets/fonts/IBMPlexMono-Regular.ttf";
+import "../assets/fonts/IBMPlexMono-SemiBold.ttf";
+import "../assets/fonts/IBMPlexMono-SemiBoldItalic.ttf";
+import "../assets/fonts/IBMPlexMono-Thin.ttf";
+import "../assets/fonts/IBMPlexMono-ThinItalic.ttf";
 import '../styles.css';
 
 const Root = () => {

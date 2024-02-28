@@ -4,6 +4,8 @@ import axios from "axios";
 import styled from "styled-components";
 import { popularProducts } from "../data";
 import Product from "./Product";
+import '../font.css';
+
 
 const Container = styled.div`
     padding: 20px;
@@ -14,6 +16,7 @@ const Container = styled.div`
 
 const Title = styled.h1`
   margin-bottom: 5px;
+  font-family: "Medium"; /* Apply the custom font family */
   color: ${props => props.mobileView ? 'white' : 'black'};
 
   @media (min-width: 768px) {

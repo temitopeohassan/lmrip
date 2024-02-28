@@ -8,11 +8,13 @@
 import React from 'react'
 import styled from 'styled-components';
 import Img from "../assets/images/siteImage.jpg";
+import "../font.css";
 
 
 
 const Container = styled.div`
 padding:50px;
+font-family: "Regular"; /* Apply the custom font family */
 
 @media (max-width: 768px) {
   color: white; /* Change text color to white for mobile view */
@@ -23,6 +25,7 @@ const FormContainer = styled.div`
    
     padding: 20px; /* Add padding for spacing */
     max-width: 500px; /* Limit width of the form container */
+    font-family: "Regular"; /* Apply the custom font family */
 
     /* Style form elements */
     input[type="text"],
@@ -34,6 +37,7 @@ const FormContainer = styled.div`
     }
 
     /* Style button */
+    font-family: "Regular"; /* Apply the custom font family */
     button[type="submit"] {
         width: 100%;
     }
@@ -47,6 +51,7 @@ const FormContainer = styled.div`
 
 const Title = styled.h1`
   margin-bottom: 30px;
+  font-family: "Medium"; /* Apply the custom font family */
 
   @media (max-width: 768px) {
     color: white; /* Change text color to white for mobile view */

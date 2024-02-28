@@ -8,9 +8,11 @@
 import React from 'react'
 import styled from 'styled-components';
 import Img from "../assets/images/siteImage.jpg";
+import "../font.css";
 
 const Title = styled.h1`
   margin-bottom: 30px;
+  font-family: "Medium"; /* Apply the custom font family */
 
   @media (max-width: 768px) {
     color: white; /* Change text color to white for mobile view */
@@ -19,6 +21,7 @@ const Title = styled.h1`
 
 const Container = styled.div`
 padding:50px;
+font-family: "Regular"; /* Apply the custom font family */
 
 @media (max-width: 768px) {
   color: white; /* Change text color to white for mobile view */

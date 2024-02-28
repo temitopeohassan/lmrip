@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import '../font.css';
 
 const Container = styled.div`
   flex: 1;
@@ -42,6 +43,7 @@ const Title = styled.h1`
   margin-bottom: 20px;
   text-align: center;
   color: white;
+  font-family: "Medium"; /* Apply the custom font family */
 
   @media (max-width: 768px) {
     color: white; /* Adjust text color for mobile view */
