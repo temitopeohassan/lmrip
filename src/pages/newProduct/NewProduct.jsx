@@ -67,12 +67,15 @@ export default function NewProduct() {
           const product = { ...inputs, img: downloadURL, categories: cat };
           console.log("Adding product:", product);
           await addProduct(product, dispatch);
+          console.log("Product added successfully.");
         } catch (error) {
           console.error("Error adding product:", error);
         }
       }
     );
   };
+
+  console.log("Rendering NewProduct component");
 
   return (
     <div className="newProduct">
