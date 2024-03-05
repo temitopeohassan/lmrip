@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 import { useState } from "react";
 import "./newProduct.css";
 import {
@@ -7,10 +14,12 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import app from "../../firebase";
+import { useNavigate } from 'react-router-dom';
 import { addProduct } from "../../redux/apiCallsAdmin";
 import { useDispatch } from "react-redux";
 
 export default function NewProduct() {
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
@@ -68,6 +77,7 @@ export default function NewProduct() {
           console.log("Adding product:", product);
           await addProduct(product, dispatch);
           console.log("Product added successfully.");
+          return navigate('/admin/products');
         } catch (error) {
           console.error("Error adding product:", error);
         }
